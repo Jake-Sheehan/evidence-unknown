@@ -3,7 +3,7 @@ export const prerender = false;
 
 import Layout from '@layouts/Layout.astro';
 import ContactForm from '@components/ContactForm.astro';
-import PrimaryCard from '@components/cards/PrimaryCard.astro';
+import CaseCard from '@components/cards/CaseCard.astro';
 
 let formSubmitted: boolean = false;
 let resultMessage;
@@ -49,9 +49,9 @@ if (Astro.request.method === 'POST') {
                 vestibulum ac ad.
             </p>
         </div>
-        <PrimaryCard>
+        <CaseCard>
             {formSubmitted ? <p>{resultMessage}</p> : <ContactForm />}
-        </PrimaryCard>
+        </CaseCard>
     </section>
 </Layout>
 

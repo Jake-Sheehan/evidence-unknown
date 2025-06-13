@@ -1,0 +1,30 @@
+<div class="card">
+    <slot />
+</div>
+
+<style>
+    .card {
+        /* give card min height and width so it is visible with no content */
+        min-block-size: 10px;
+        min-inline-size: 10px;
+        /* styles */
+        background-color: var(--surface-card);
+        padding: var(--padding-card);
+        border: solid 1px var(--border-green);
+        font-family: var(--ff-heading);
+
+        :global(*) {
+            margin-top: var(--padding-card-content);
+            margin-bottom: var(--padding-card-content);
+            white-space: normal; /* Ensures text can wrap */
+            overflow-wrap: break-word; /* Allows breaking long words */
+            word-wrap: break-word; /* Allows breaking long words */
+        }
+
+        :global(img) {
+            border: solid 1px var(--border-green);
+            aspect-ratio: 16/9;
+            width: 100%;
+        }
+    }
+</style>

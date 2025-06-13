@@ -1,8 +1,9 @@
 ---
 // fonts - MUST BE FIRST
 import '@fontsource/roboto';
-import '@fontsource-variable/inter';
-
+import '@fontsource/audiowide';
+import '@fontsource/vt323';
+import '@fontsource/russo-one';
 // global styles - MUST BE SECOND
 import '../styles/global.css';
 
@@ -16,15 +17,6 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-
-<script>
-    import { theme } from '../store.ts';
-    theme.subscribe((current) => {
-        const app = document.getElementById('app');
-        app?.classList.remove('light', 'dark');
-        app?.classList.add(current);
-    });
-</script>
 
 <html id="app" lang="en">
     <head>
@@ -72,7 +64,7 @@ const { title } = Astro.props;
         left: 0;
         z-index: 10000;
         padding: 1rem;
-        background-color: var(--color-surface-inverted);
+        background-color: var(--surface-card);
         text-decoration: none;
         border-bottom-right-radius: var(--rounded-sm);
         text-transform: uppercase;

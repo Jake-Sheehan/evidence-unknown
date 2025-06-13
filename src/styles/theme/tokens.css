@@ -5,7 +5,9 @@
 
     /* font family */
     --ff-base: var(--font-roboto);
-    --ff-heading: var(--font-helvetica);
+    --ff-heading: var(--font-vt323);
+    --ff-logo: var(--font-russo-one);
+    --ff-tagline: var(--font-audiowide);
 
     /* font size */
     --fs-title-large: var(--fs-1000);
@@ -21,6 +23,11 @@
      * SIZE
      * */
 
+    /* padding */
+    --padding-card: var(--padding-sm);
+    --padding-card-content: var(--padding-xs);
+    --padding-button: var(--padding-xs);
+
     /* border radius */
     --rounded-none: var(--radius-none);
     --rounded-sm: var(--radius-xs);
@@ -30,60 +37,15 @@
     --rounded-full: var(--radius-full);
 
     /* color */
-    --color-surface-success: var(--color-green-500);
-    --color-surface-failure: var(--color-red-500);
-    --color-text-light: var(--color-neutral-50);
-    --color-text-dark: var(--color-neutral-900);
-}
-
-/* Light Theme */
-html.light {
-    /*
-     * COLOR
-     * */
-
-    /* text */
-    --color-text-heading: var(--color-neutral-950);
-    --color-text-primary: var(--color-neutral-900);
-    --color-text-secondary: var(--color-secondary);
-    --color-text-brand: var(--color-primary);
-    --color-text-muted: var(--color-neutral-300);
-    --color-text-highlight: var(--color-tertiary);
-    --color-text-link: var(--color-neutral-900);
-    --color-text-inverted: var(--color-neutral-50);
-
-    /* surface */
-    --color-surface-primary: var(--color-neutral-50);
-    --color-surface-secondary: var(--color-secondary);
-    --color-surface-brand: var(--color-primary);
-    --color-surface-inverted: var(--color-neutral-900);
-
-    /* border */
-    --color-border: var(--color-neutral-300);
-}
-
-/* Dark Theme */
-html.dark {
-    /*
-     * COLOR
-     * */
-
-    /* text */
-    --color-text-heading: var(--color-neutral-50);
-    --color-text-primary: var(--color-neutral-100);
-    --color-text-secondary: var(--color-secondary);
-    --color-text-brand: var(--color-primary);
-    --color-text-muted: var(--color-neutral-400);
-    --color-text-highlight: var(--color-tertiary);
-    --color-text-link: var(--color-neutral-100);
-    --color-text-inverted: var(--color-neutral-900);
-
-    /* surface */
-    --color-surface-primary: var(--color-neutral-900);
-    --color-surface-secondary: var(--color-secondary);
-    --color-surface-brand: var(--color-primary);
-    --color-surface-inverted: var(--color-neutral-100);
-
-    /* border */
-    --color-border: var(--color-neutral-700);
+    --border: var(--gray-400);
+    --border-white: var(--color-white);
+    --border-green: var(--color-green);
+    --border-primary: var(--color-green);
+    --surface-primary: var(--color-black);
+    --surface-card: var(--color-dark-green);
+    --surface-shade: var(--color-shade);
+    --surface-nav: var(--color-dark-black);
+    --text-primary: var(--color-green);
+    --text-white: var(--color-white);
+    --text-muted: var(--gray-400);
 }

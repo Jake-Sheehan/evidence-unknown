@@ -1,7 +1,5 @@
 ---
-import ThemeSwitcher from '@components/ThemeSwitcher.astro';
 import HamburgerMenu from '@components/svg/hamburger.astro';
-import logoUrl from '@assets/logoipsum.svg?url';
 ---
 
 <script>
@@ -39,7 +37,7 @@ import logoUrl from '@assets/logoipsum.svg?url';
 </script>
 
 <header class="primary-header">
-    <img src={logoUrl} alt="logo" />
+    <h3 class="logo">Evidence Unknown</h3>
 
     <button aria-controls="nav" aria-expanded="false">
         <span class="visually-hidden">menu</span>
@@ -58,26 +56,27 @@ import logoUrl from '@assets/logoipsum.svg?url';
             </li>
         </ul>
     </nav>
-    <div class="theme-switcher">
-        <ThemeSwitcher />
-    </div>
 </header>
 
 <style>
     header {
+        background-color: var(--surface-nav);
         display: grid;
         grid-template-columns: 1fr auto auto;
         grid-template-rows: auto;
         align-items: center;
-        grid-template-areas: 'logo nav theme';
+        grid-template-areas: 'logo nav';
         gap: 1rem;
-        padding: 1rem 2rem;
+        padding: 0.5rem 2rem;
         width: 100%;
         position: relative;
     }
 
-    img {
+    .logo {
         grid-area: logo;
+        font-size: var(--fs-body-regular);
+        font-family: var(--ff-logo);
+        color: var(--text-white);
     }
 
     button[aria-controls='nav'] {
@@ -102,7 +101,7 @@ import logoUrl from '@assets/logoipsum.svg?url';
         place-items: center;
         font-family: var(--ff-heading);
         text-transform: uppercase;
-        font-weight: bold;
+        font-size: var(--fs-body-regular);
 
         ul {
             display: flex;
@@ -129,7 +128,7 @@ import logoUrl from '@assets/logoipsum.svg?url';
             border-bottom-right-radius: var(--rounded);
             position: absolute;
             top: 100%;
-            right: 10px;
+            right: 0;
 
             ul {
                 gap: 0;
@@ -150,10 +149,6 @@ import logoUrl from '@assets/logoipsum.svg?url';
                 display: block;
             }
         }
-    }
-
-    .theme-switcher {
-        grid-area: theme;
     }
 
     a {
