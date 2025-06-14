@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import CaseCard from '@components/cards/CaseCard.astro';
 import LinkButton from '@components/buttons/LinkButton.astro';
+import { caseData } from '../data.ts';
 ---
 
 <Layout title="Home">
@@ -18,57 +19,38 @@ import LinkButton from '@components/buttons/LinkButton.astro';
         <LinkButton label="Our Mission" href="/" />
     </section>
 
+    <section class="wrapper" data-width="wide">
+        <h3>Case Files...</h3>
+    </section>
+
     <section class="section wrapper cards" data-width="wide">
-        <CaseCard>
-            <h3>[case #5193] - Mage, Brazil - 2023</h3>
-            <img src="https://picsum.photos/350/197" alt="test" />
-            <p>Signature: QmTzQ1eZTzb1K1jxF9yME2Ht5LZso6AXPhAbn5QZqRGZgd</p>
-        </CaseCard>
-        <CaseCard>
-            <h3>[case #5193] - Mage, Brazil - 2023</h3>
-            <img src="https://picsum.photos/350/197" alt="test" />
-            <p>Signature: QmTzQ1eZTzb1K1jxF9yME2Ht5LZso6AXPhAbn5QZqRGZgd</p>
-        </CaseCard>
-        <CaseCard>
-            <h3>[case #5193] - Mage, Brazil - 2023</h3>
-            <img src="https://picsum.photos/350/197" alt="test" />
-            <p>Signature: QmTzQ1eZTzb1K1jxF9yME2Ht5LZso6AXPhAbn5QZqRGZgd</p>
-        </CaseCard>
-        <CaseCard>
-            <h3>[case #5193] - Mage, Brazil - 2023</h3>
-            <img src="https://picsum.photos/350/197" alt="test" />
-            <p>Signature: QmTzQ1eZTzb1K1jxF9yME2Ht5LZso6AXPhAbn5QZqRGZgd</p>
-        </CaseCard>
-        <CaseCard>
-            <h3>[case #5193] - Mage, Brazil - 2023</h3>
-            <img src="https://picsum.photos/350/197" alt="test" />
-            <p>Signature: QmTzQ1eZTzb1K1jxF9yME2Ht5LZso6AXPhAbn5QZqRGZgd</p>
-        </CaseCard>
-        <CaseCard>
-            <h3>[case #5193] - Mage, Brazil - 2023</h3>
-            <img src="https://picsum.photos/350/197" alt="test" />
-            <p>Signature: QmTzQ1eZTzb1K1jxF9yME2Ht5LZso6AXPhAbn5QZqRGZgd</p>
-        </CaseCard>
-        <CaseCard>
-            <h3>[case #5193] - Mage, Brazil - 2023</h3>
-            <img src="https://picsum.photos/350/197" alt="test" />
-            <p>Signature: QmTzQ1eZTzb1K1jxF9yME2Ht5LZso6AXPhAbn5QZqRGZgd</p>
-        </CaseCard>
+        {
+            caseData.map((caseItem) => (
+                <CaseCard href={`/cases/${caseItem.signature}`}>
+                    <h3>
+                        [ case #{caseItem.caseNum}] - {caseItem.location} -{' '}
+                        {caseItem.date.getFullYear()}
+                    </h3>
+                    <img src={caseItem.imgUrl} alt="test" />
+                    <p>Signature: {caseItem.signature}</p>
+                </CaseCard>
+            ))
+        }
     </section>
 </Layout>
 
 <style>
     .hero-section {
         background: linear-gradient(
-                rgb(39 39 39 / 0%) 0%,
+                to bottom,
+                rgb(39 39 39 / 0%) 75%,
                 rgb(39 39 39 / 100%) 100%
             ),
             url('/images/night-sky.jpg');
-        background-blend-mode: overlay;
         background-size: cover;
         background-position: bottom;
 
-        min-block-size: 60dvh;
+        min-block-size: 65dvh;
 
         display: flex;
         flex-flow: column nowrap;

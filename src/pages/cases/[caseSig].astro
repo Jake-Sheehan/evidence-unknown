@@ -1,0 +1,44 @@
+---
+import { caseData, getCase } from '../../data';
+import Layout from '@layouts/Layout.astro';
+import VideoPlayer from '@components/VideoPlayer.astro';
+import CasePageCard from '@components/cards/CasePageCard.astro';
+
+export function getStaticPaths() {
+    return caseData.map((caseItem) => ({
+        params: { caseSig: caseItem.signature },
+    }));
+}
+
+const { caseSig } = Astro.params;
+
+const caseItem = getCase(caseSig);
+if (!caseItem) throw new Error(`Case with signature ${caseSig} not found.`);
+---
+
+<Layout title={`Case ${caseSig}`}>
+    <section class="wrapper" data-width="wide">
+        <h3>{caseItem.title}</h3>
+    </section>
+    <section class="wrapper" data-width="wide">
+        <CasePageCard>
+            <p>[case #{caseItem.caseNum}]</p>
+            <p>{caseItem.location}</p>
+            <p>{caseItem.date.getFullYear()}</p>
+            <p>IPFS Signature: {caseItem.signature}</p>
+            <p>{caseItem.description}</p>
+            <div class="video-player">
+                <VideoPlayer source={caseItem.videoUrl} />
+            </div>
+        </CasePageCard>
+    </section>
+</Layout>
+
+<style>
+    .video-player {
+        border: solid 1px var(--border-green);
+        aspect-ratio: 16/9;
+        width: 100%;
+        max-inline-size: 600px;
+    }
+</style>

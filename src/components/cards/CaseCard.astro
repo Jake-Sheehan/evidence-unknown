@@ -1,6 +1,14 @@
-<div class="card">
+---
+interface Props {
+    href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} class="card">
     <slot />
-</div>
+</a>
 
 <style>
     .card {
@@ -12,6 +20,7 @@
         padding: var(--padding-card);
         border: solid 1px var(--border-green);
         font-family: var(--ff-heading);
+        color: var(--text-primary);
 
         :global(*) {
             margin-top: var(--padding-card-content);
@@ -25,6 +34,10 @@
             border: solid 1px var(--border-green);
             aspect-ratio: 16/9;
             width: 100%;
+        }
+
+        &:hover {
+            outline: solid 2px var(--border-green);
         }
     }
 </style>
